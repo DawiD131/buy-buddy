@@ -1,0 +1,4 @@
+### GET request to example server
+GET {{domain}}/search-engine?query="marynarka"
+
+###

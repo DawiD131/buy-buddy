@@ -5,6 +5,8 @@ import { ShopifyService } from '../shopify/shopify.service';
 import { ShopifyApiClient } from '../shopify/ShopifyApiClient';
 import { QdrantService } from '../qdrant/qdrant.service';
 import { VectorDbRepository } from './repository/vector-db.repository';
+import { OpenaiService } from '../openai/openai.service';
+import { TextEmbeddingService } from '../text-embedding/text-embedding.service';
 
 @Module({
   providers: [
@@ -13,6 +15,8 @@ import { VectorDbRepository } from './repository/vector-db.repository';
     ShopifyApiClient,
     QdrantService,
     VectorDbRepository,
+    OpenaiService,
+    TextEmbeddingService,
   ],
   controllers: [ProductSynchronizerController],
 })
