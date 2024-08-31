@@ -13,6 +13,7 @@ export class ShopifyApiClient {
         'X-Shopify-Access-Token': this.configService.get<string>(
           'SHOPIFY_ACCESS_TOKEN',
         ),
+        'Content-Type': 'application/json',
       },
     });
   }

@@ -2,8 +2,9 @@ import { Module } from '@nestjs/common';
 import { ChatAssetsModule } from './chat-assets/chat-assets.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
-import { ShopifyService } from './shopify/shopify.service';
 import { ConfigModule } from '@nestjs/config';
+import { ProductSynchronizerModule } from './product-synchronizer/product-synchronizer.module';
+import { QdrantService } from './qdrant/qdrant.service';
 
 @Module({
   imports: [
@@ -11,8 +12,10 @@ import { ConfigModule } from '@nestjs/config';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'assets'),
     }),
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    ProductSynchronizerModule,
   ],
-  providers: [ShopifyService],
 })
 export class AppModule {}
